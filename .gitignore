@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# IDE / editor configs
+.idea/
+.vscode/
+
+# Other common ignores
+*.log
+*.env
+.env
+.DS_Store
