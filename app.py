@@ -1,5 +1,3 @@
-# File: app.py
-
 import customtkinter
 from gui.encrypt_frame import EncryptFrame
 from gui.decrypt_frame import DecryptFrame

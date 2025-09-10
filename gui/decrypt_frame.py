@@ -1,5 +1,3 @@
-# File: gui/decrypt_frame.py
-
 import customtkinter
 import pyperclip
 import json
@@ -58,7 +56,7 @@ class DecryptFrame(customtkinter.CTkFrame):
                 success, result = False, "Unknown operation in recipe."
             if not success:
                 self.app.show_toast("Processing Failed", f"Step '{operation_name}' failed: {result}",
-                                    toast_type="error")
+                                      toast_type="error")
                 self.reset_step_state()
                 return
             current_data = result
@@ -84,7 +82,7 @@ class DecryptFrame(customtkinter.CTkFrame):
             return
         if not recipe_steps:
             self.app.show_toast("Recipe Error", "Please add at least one operation to the recipe.",
-                                toast_type="warning")
+                                  toast_type="warning")
             return
         for step_frame in recipe_steps:
             operation_label = step_frame.winfo_children()[1]
@@ -96,7 +94,7 @@ class DecryptFrame(customtkinter.CTkFrame):
                 success, result = False, "Unknown operation in recipe."
             if not success:
                 self.app.show_toast("Processing Failed", f"Step '{operation_name}' failed: {result}",
-                                    toast_type="error")
+                                      toast_type="error")
                 return
             current_data = result
         self.output_textbox.configure(state="normal")
@@ -114,24 +112,6 @@ class DecryptFrame(customtkinter.CTkFrame):
         self.update_recipe_placeholder()
         self.reset_step_state()
 
-    def filter_operations(self, event=None):
-        search_term = self.search_entry.get().lower()
-        for category_name, widgets in self.operation_widgets.items():
-            category_visible = False
-            for widget in widgets:
-                if search_term == "" or search_term in widget.cget("text").lower():
-                    widget.grid(sticky="ew", padx=10, pady=2)
-                    category_visible = True
-                else:
-                    widget.grid_forget()
-
-            category_label = self.category_labels.get(category_name)
-            if category_label:
-                if category_visible:
-                    category_label.grid()
-                else:
-                    category_label.grid_forget()
-
     def copy_output(self):
         content = self.output_textbox.get("1.0", "end-1c")
         if content:
@@ -144,7 +124,7 @@ class DecryptFrame(customtkinter.CTkFrame):
         recipe_steps = [child for child in self.recipe_scrollable_frame.winfo_children() if
                         isinstance(child, customtkinter.CTkFrame)]
         if not recipe_steps: self.app.show_toast("Warning", "Recipe is empty, nothing to save.",
-                                                 toast_type="warning"); return
+                                                  toast_type="warning"); return
         recipe_data = []
         for step_frame in recipe_steps:
             operation_label = step_frame.winfo_children()[1]
@@ -210,19 +190,15 @@ class DecryptFrame(customtkinter.CTkFrame):
     def create_operations_sidebar(self):
         sidebar_frame = customtkinter.CTkFrame(self)
         sidebar_frame.grid(row=0, column=0, sticky="nsew", padx=(10, 5), pady=10)
-        sidebar_frame.grid_rowconfigure(2, weight=1);
+        sidebar_frame.grid_rowconfigure(1, weight=1);
         sidebar_frame.grid_columnconfigure(0, weight=1)
 
         customtkinter.CTkLabel(sidebar_frame, text="Operations",
                                font=customtkinter.CTkFont(size=18, weight="bold")).grid(row=0, column=0, padx=20,
-                                                                                        pady=(10, 10))
-
-        self.search_entry = customtkinter.CTkEntry(sidebar_frame, placeholder_text="Search operations...")
-        self.search_entry.grid(row=1, column=0, sticky="ew", padx=15)
-        self.search_entry.bind("<KeyRelease>", self.filter_operations)
+                                                                                       pady=(10, 10))
 
         scrollable_frame = customtkinter.CTkScrollableFrame(sidebar_frame, fg_color="transparent", corner_radius=0)
-        scrollable_frame.grid(row=2, column=0, sticky="nsew", pady=(10, 0));
+        scrollable_frame.grid(row=1, column=0, sticky="nsew", pady=(10, 0));
         scrollable_frame.grid_columnconfigure(0, weight=1)
 
         decoder_label = customtkinter.CTkLabel(scrollable_frame, text="Decoders",
@@ -255,14 +231,14 @@ class DecryptFrame(customtkinter.CTkFrame):
         customtkinter.CTkLabel(recipe_header, text="Decryption Recipe",
                                font=customtkinter.CTkFont(size=18, weight="bold")).pack(side="left", padx=(0, 10))
         customtkinter.CTkButton(recipe_header, text="📂 Load", width=70, command=self.load_recipe).pack(side="right",
-                                                                                                       padx=(5, 0))
+                                                                                                         padx=(5, 0))
         customtkinter.CTkButton(recipe_header, text="💾 Save", width=70, command=self.save_recipe).pack(side="right",
-                                                                                                       padx=(5, 0))
+                                                                                                         padx=(5, 0))
         customtkinter.CTkButton(recipe_header, text="Clear All", width=80, command=self.clear_recipe, fg_color="gray40",
                                 hover_color="gray30").pack(side="right")
 
         customtkinter.CTkButton(recipe_frame, text="Auto-Detect Magic ✨", height=40).grid(row=1, column=0, padx=10,
-                                                                                          pady=(5, 10), sticky="ew")
+                                                                                         pady=(5, 10), sticky="ew")
         self.recipe_scrollable_frame = customtkinter.CTkScrollableFrame(recipe_frame)
         self.recipe_scrollable_frame.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
         self.recipe_placeholder = customtkinter.CTkLabel(self.recipe_scrollable_frame,
@@ -274,9 +250,9 @@ class DecryptFrame(customtkinter.CTkFrame):
         button_frame.grid_columnconfigure((0, 1), weight=1)
         customtkinter.CTkButton(button_frame, text="Step", height=40, font=customtkinter.CTkFont(size=16),
                                 fg_color="#494949", hover_color="#333333", command=self.process_step).grid(row=0,
-                                                                                                           column=0,
-                                                                                                           padx=(0, 5),
-                                                                                                           sticky="ew")
+                                                                                                            column=0,
+                                                                                                            padx=(0, 5),
+                                                                                                            sticky="ew")
         customtkinter.CTkButton(button_frame, text="🏭 Bake Recipe!", height=40,
                                 font=customtkinter.CTkFont(size=16, weight="bold"), command=self.bake_recipe).grid(
             row=0, column=1, padx=(5, 0), sticky="ew")
@@ -307,9 +283,9 @@ class DecryptFrame(customtkinter.CTkFrame):
         customtkinter.CTkButton(output_controls, text="❌ Clear", width=80, command=self.clear_output,
                                 fg_color="#D2691E", hover_color="#C2590E").pack(side="right", padx=(5, 0))
         customtkinter.CTkButton(output_controls, text="💾 Save", width=80, command=self.save_to_file).pack(side="right",
-                                                                                                          padx=(5, 0))
+                                                                                                           padx=(5, 0))
         customtkinter.CTkButton(output_controls, text="📝 Copy", width=80, command=self.copy_output).pack(side="right",
-                                                                                                         padx=(5, 0))
+                                                                                                           padx=(5, 0))
         self.output_textbox = customtkinter.CTkTextbox(io_frame, state="disabled")
         self.output_textbox.grid(row=3, column=0, padx=10, pady=(0, 0), sticky="nsew")
 
