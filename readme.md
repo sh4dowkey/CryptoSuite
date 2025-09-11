@@ -20,7 +20,6 @@
 
 ---
 
-<br>
 
 ## ✨ Why CryptoSuite?
 
@@ -32,12 +31,11 @@ CryptoSuite makes cryptography accessible.
 
 ---
 
-<br>
 
 ## 🛠️  Features
 
 **🚧 Available now**
-- Recipe-based system: chain multiple operations in sequence  
+- Recipe-based system: chain multiple operations in sequence
 - Base64 encode & decode , HEX encode & decode , Cipher
 - Save and load recipes  
 - Dark-themed GUI with separate encrypt/decrypt panels  
@@ -52,8 +50,6 @@ CryptoSuite makes cryptography accessible.
 
 
 ---
-
-<br>
 
 
 ## 🔐 Example Workflows
@@ -107,7 +103,6 @@ python main.py
 
 ---
 
-<br>
 
 ## 📖 Basic Usage
 
@@ -119,7 +114,6 @@ python main.py
 
 ---
 
-<br>
 
 ## 🛣️ Roadmap
 
@@ -140,7 +134,6 @@ python main.py
 
 ---
 
-<br>
 
 ## 🤝 Contributing
 
@@ -155,7 +148,6 @@ Please keep functions small, documented, and covered by unit tests where possibl
 
 ---
 
-<br>
 
 ## 📝 License
 
@@ -163,7 +155,6 @@ This project is released under the **MIT License**.
 
 ---
 
-<br>
 
 ## 🙏 Acknowledgements
 
