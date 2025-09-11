@@ -21,7 +21,7 @@ class App(customtkinter.CTk):
         self.header_frame = customtkinter.CTkFrame(self, height=60, corner_radius=0)
         self.header_frame.grid(row=0, column=0, sticky="ew")
         self.header_frame.grid_columnconfigure(0, weight=1)
-        self.app_name_label = customtkinter.CTkLabel(self.header_frame, text="CryptoSuite",
+        self.app_name_label = customtkinter.CTkLabel(self.header_frame, text="CryptoSuite 🔐",
                                                      font=customtkinter.CTkFont(family="Helvetica", size=24,
                                                                                 weight="bold"))
         self.app_name_label.grid(row=0, column=0, padx=20, pady=15, sticky="w")

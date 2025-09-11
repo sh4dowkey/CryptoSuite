@@ -12,10 +12,15 @@
 
 </div>
 
+<br>
+
 > **CryptoSuite** — a lightweight, extensible cryptography toolkit written in **Python**. Designed for clarity and ease-of-use with a focus on modularity and learning.
 > *Work in Progress — currently implements Base64 encode/decode.* 🚧
 
+
 ---
+
+<br>
 
 ## ✨ Why CryptoSuite?
 
@@ -27,26 +32,28 @@ CryptoSuite makes cryptography accessible.
 
 ---
 
+<br>
+
 ## 🛠️  Features
 
 **🚧 Available now**
 - Recipe-based system: chain multiple operations in sequence  
-- Base64 encode & decode  
+- Base64 encode & decode , HEX encode & decode , Cipher
 - Save and load recipes  
 - Dark-themed GUI with separate encrypt/decrypt panels  
 
 **🚧 Planned / Work in progress**
--  Auto-Detect mode ✨: analyze input and suggest operations  
+- Auto-Detect mode ✨: analyze input and suggest operations  
 - AES encryption & decryption  
-- Classic ciphers (Caesar, Vigenère)  
-- Hashing tab (MD5, SHA-256)  
-- Drag-and-drop recipe reordering  
+- Classic ciphers  
+- Hashing tab (MD5, SHA-256)
 
 > See **Roadmap** below for details.
 
 
 ---
 
+<br>
 
 
 ## 🔐 Example Workflows
@@ -71,6 +78,7 @@ CryptoSuite makes cryptography accessible.
   <sub>💾 Save Recipe</sub>   <sub>📂 Load Recipe</sub>
 </div>
 
+<br>
 
 > 💡 **Tip:** You can chain multiple encryptions in one recipe for extra security!
 
@@ -99,6 +107,8 @@ python main.py
 
 ---
 
+<br>
+
 ## 📖 Basic Usage
 
 1.  Launch the application by running `python main.py`.
@@ -108,6 +118,8 @@ python main.py
 5.  You can add more operations to the recipe or save the current recipe using the **"Save Recipe"** button.
 
 ---
+
+<br>
 
 ## 🛣️ Roadmap
 
@@ -128,6 +140,8 @@ python main.py
 
 ---
 
+<br>
+
 ## 🤝 Contributing
 
 Contributions are welcome!  
@@ -141,11 +155,15 @@ Please keep functions small, documented, and covered by unit tests where possibl
 
 ---
 
+<br>
+
 ## 📝 License
 
 This project is released under the **MIT License**.
 
 ---
+
+<br>
 
 ## 🙏 Acknowledgements
 
